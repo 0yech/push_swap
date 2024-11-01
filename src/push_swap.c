@@ -6,9 +6,141 @@
 /*   By: cheyo <cheyo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 00:28:43 by cheyo             #+#    #+#             */
-/*   Updated: 2024/10/29 01:40:59 by cheyo            ###   ########.fr       */
+/*   Updated: 2024/11/01 19:51:16 by cheyo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
+#include "ft_printf.h"
+#include "push_swap.h"
+
+long int	ft_longatoi(const char *str)
+{
+	int			sign;
+	long int	result;
+
+	sign = 1;
+	result = 0;
+	while (*str == ' ' || *str == '\t' || *str == '\n'
+		|| *str == '\r' || *str == '\v' || *str == '\f')
+		str++;
+	if (*str == '-')
+	{
+		sign = -1;
+		str++;
+	}
+	else if (*str == '+')
+		str++;
+	while (*str >= '0' && *str <= '9')
+	{
+		result = result * 10 + (*str - '0');
+		str++;
+	}
+	return (sign * result);
+}
+
+int		validintsize(char *s)
+{
+	long int	nb;
+
+	nb = ft_longatoi(s);
+
+	if (nb > MAX_INT || nb < MIN_INT)
+		return (0);
+	return (1);
+}
+
+int		lookfornums(char *s)
+{
+	int	i;
+
+	i = 0;
+	if (s[0] == '-')
+		i++;
+	while (s[i])
+		if (ft_isdigit(s[i++]) != 1)
+			return (0);
+	if (validintsize(s) != 1)
+		return (0);
+	return (1);
+}
+
+int		checkargs(char *args[])
+{
+	int	i;
+
+	i = 1;
+	while (args[i])
+	{
+		if (lookfornums(args[i]) != 1)
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+void	free_data(char **p)
+{
+	int	i;
+
+	i = 0;
+	while (p[i])
+		free(p[i++]);
+	free(p);
+}
+
+int	checkvalidity(char *s)
+{
+	char	**p;
+	int 	i;
+	
+	i = 0;
+	p = ft_split(s, 32);
+	if (p == NULL)
+		return (0);
+	while (p[i])
+	{
+		if(lookfornums(p[i++]) != 1)
+			return (0);
+	}
+	free_data(p);
+	p = NULL;
+	return (1);
+}
+
+int	main(int argc, char *argv[])
+{
+	if (argc < 2)
+	{
+		ft_printf("No args");
+		return (0);
+	}
+	if (argc == 2)
+	{
+		if (checkvalidity(argv[1]) != 1)
+		{
+			ft_printf("Invalid String");
+			return (0);
+		}
+	}
+	if (checkargs(argv) != 1)
+	{
+		ft_printf("Invalid args");
+		return (0);
+	}
+	ft_printf("valid !");
+	return (1);
+
+	/*
+		TODO
+
+		Move all checks to an error handler to save space.
+
+		! CHECK FOR DUPLICATES !
+
+		(Make an array of int and compare numbers)
+	*/
+}
 
 /*
    ----------------
