@@ -6,7 +6,7 @@
 /*   By: cheyo <cheyo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 00:28:43 by cheyo             #+#    #+#             */
-/*   Updated: 2024/11/01 19:51:16 by cheyo            ###   ########.fr       */
+/*   Updated: 2024/11/01 20:30:30 by cheyo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,10 +123,13 @@ int	main(int argc, char *argv[])
 			return (0);
 		}
 	}
-	if (checkargs(argv) != 1)
+	if (argc > 2)
 	{
-		ft_printf("Invalid args");
-		return (0);
+		if (checkargs(argv) != 1)
+		{
+			ft_printf("Invalid args");
+			return (0);
+		}
 	}
 	ft_printf("valid !");
 	return (1);
