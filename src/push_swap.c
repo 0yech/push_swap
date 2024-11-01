@@ -6,7 +6,7 @@
 /*   By: cheyo <cheyo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 00:28:43 by cheyo             #+#    #+#             */
-/*   Updated: 2024/11/01 20:30:30 by cheyo            ###   ########.fr       */
+/*   Updated: 2024/11/01 20:32:50 by cheyo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,11 @@ int	checkvalidity(char *s)
 	while (p[i])
 	{
 		if(lookfornums(p[i++]) != 1)
+		{
+			free_data(p);
+			p = NULL;
 			return (0);
+		}
 	}
 	free_data(p);
 	p = NULL;
