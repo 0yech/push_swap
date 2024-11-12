@@ -1,6 +1,6 @@
 NAME = push_swap
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -fsanitize=address
 LIBFT_DIR = ./libft
 PRINTF_DIR = ./ft_printf
 SRC_DIR = ./src
@@ -8,7 +8,21 @@ INC_DIR = ./include
 LIBFT = $(LIBFT_DIR)/libft.a
 PRINTF = $(PRINTF_DIR)/libftprintf.a
 
-SRCS = $(SRC_DIR)/push_swap.c
+SRCS = $(SRC_DIR)/main.c \
+		$(SRC_DIR)/args_utils.c \
+		$(SRC_DIR)/duplicates.c \
+		$(SRC_DIR)/free_utils.c \
+		$(SRC_DIR)/init.c \
+		$(SRC_DIR)/num_utils.c \
+		$(SRC_DIR)/parsing.c \
+		$(SRC_DIR)/utils.c \
+		$(SRC_DIR)/valid.c \
+		$(SRC_DIR)/swap_move.c \
+		$(SRC_DIR)/rotate_move.c \
+		$(SRC_DIR)/revrotate_move.c \
+		$(SRC_DIR)/push_move.c \
+		$(SRC_DIR)/init_stack.c \
+
 OBJS = $(SRCS:.c=.o)
 
 LIBS = -L$(LIBFT_DIR) -lft -L$(PRINTF_DIR) -lftprintf
