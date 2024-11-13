@@ -25,6 +25,7 @@ SRCS = $(SRC_DIR)/main.c \
 		$(SRC_DIR)/is_sorted.c \
 		$(SRC_DIR)/solve_three.c \
 		$(SRC_DIR)/solve_five.c \
+		$(SRC_DIR)/solve_pain.c \
 
 OBJS = $(SRCS:.c=.o)
 

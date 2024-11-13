@@ -90,7 +90,6 @@ int		pb(t_stack **a, t_stack **b);
 /* init_stack.c */
 void	init_stack(t_stack **stack, int *nums, int totalnums);
 void	assign_indices(t_stack *a);
-void 	test_moves(int *nums, int totalnums);
 void 	print_stack(t_stack *stack);
 
 /* is_sorted.c */
@@ -104,5 +103,7 @@ int     get_small_pos(t_stack *a);
 void    move_on_top(t_stack **a, int pos, int size);
 void    push_smallb(t_stack **a, t_stack **b, int size);
 void    solve_five(t_stack **a, t_stack **b, int totalnums);
+
+/* sort_pain.c */
 
 #endif

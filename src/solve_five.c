@@ -33,7 +33,7 @@ void    move_on_top(t_stack **a, int pos, int size)
     }
     else
     {
-        while (pos++ < size - 1)
+        while (pos++ < size)
             rra(a);
     }
 }
@@ -49,6 +49,11 @@ void    push_smallb(t_stack **a, t_stack **b, int size)
 
 void    solve_five(t_stack **a, t_stack **b, int totalnums)
 {
+    if (totalnums == 2)
+    {
+        sa(a);
+        return ;
+    }
     push_smallb(a, b, 5);
     if (totalnums == 5)
         push_smallb(a, b, 4);

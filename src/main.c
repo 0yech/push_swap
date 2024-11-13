@@ -35,10 +35,11 @@ int	main(int argc, char **argv)
 	assign_indices(a);
 	if (totalnums == 3)
 		solve_three(&a);
-	else if (totalnums == 5 || totalnums == 4)
+	else if (totalnums == 5 || totalnums == 4 || totalnums == 2)
 		solve_five(&a, &b, totalnums);
+	//else if (totalnums > 5)
+	//	solve_pain(&a, &b, totalnums);
 	print_stack(a);
-	print_stack(b);
 	free_stack(&a);
 	free_stack(&b);
 	free(nums);
