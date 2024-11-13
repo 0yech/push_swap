@@ -44,12 +44,10 @@ int		process_argument(char *arg, int *numbers, int *k);
 int		process_single_argument(char *arg, int *numbers, int *k);
 int		process_split_argument(char *arg, int *numbers, int *k);
 
-/* numbers_utils.c */
+/* numb_utils.c */
 int		fill_nums(char **argv, int *numbers);
 int		get_total_nums(char **argv);
 int		allocate_nums(int **numbers, int total_numbers);
-int		fill_numbers_wrapper(char **argv, int *numbers);
-int		check_duplicates_wrapper(int *numbers, int total_numbers);
 
 /* parsing.c */
 int		parsecheck(int argc, char **argv);
@@ -64,7 +62,7 @@ int		stack_size(t_stack *stack);
 t_stack	*last_stack(t_stack *lst);
 
 /* duplicates.c */
-int		has_duplicates(int *numbers, int total_numbers);
+int		has_duplicates(int *numbers, int totalnums);
 
 /* free_utils.c */
 void	free_data(char **p);
@@ -86,14 +84,25 @@ int		rrb(t_stack **b);
 int		rrr(t_stack **a, t_stack **b);
 
 /* push_move.c */
-int pa(t_stack **a, t_stack **b);
-int pb(t_stack **a, t_stack **b);
+int		pa(t_stack **a, t_stack **b);
+int		pb(t_stack **a, t_stack **b);
 
 /* init_stack.c */
-void init_stack(t_stack **stack, int *nums, int totalnums);
-void test_moves(int *nums, int totalnums);
-void print_stack(t_stack *stack);
+void	init_stack(t_stack **stack, int *nums, int totalnums);
+void	assign_indices(t_stack *a);
+void 	test_moves(int *nums, int totalnums);
+void 	print_stack(t_stack *stack);
 
+/* is_sorted.c */
+int 	is_sorted(int *nums, int totalnums);
 
+/* solve_three.c */
+void	solve_three(t_stack **a);
+
+/* solve_five.c */
+int     get_small_pos(t_stack *a);
+void    move_on_top(t_stack **a, int pos, int size);
+void    push_smallb(t_stack **a, t_stack **b, int size);
+void    solve_five(t_stack **a, t_stack **b, int totalnums);
 
 #endif

@@ -22,6 +22,9 @@ SRCS = $(SRC_DIR)/main.c \
 		$(SRC_DIR)/revrotate_move.c \
 		$(SRC_DIR)/push_move.c \
 		$(SRC_DIR)/init_stack.c \
+		$(SRC_DIR)/is_sorted.c \
+		$(SRC_DIR)/solve_three.c \
+		$(SRC_DIR)/solve_five.c \
 
 OBJS = $(SRCS:.c=.o)
 

@@ -1,24 +1,46 @@
 #include "push_swap.h"
 
+static int	douane(int argc, char **argv, int **nums, int *totalnums)
+{
+	if (argc < 2)
+		return (0);
+	if (!init_nums(argv, nums, totalnums) || !valid_args(argc, argv))
+	{
+		ft_printf("Error\n");
+		free(*nums);
+		return (0);
+	}
+	if (is_sorted(*nums, *totalnums))
+	{
+		free(*nums);
+		return (0);
+	}
+	return (1);
+}
+
 int	main(int argc, char **argv)
 {
-	//t_stack	*a;
-	//t_stack	*b;
+	t_stack	*a;
+	t_stack *b;
 	int		*nums;
 	int		totalnums;
 
-	//a = NULL;
-	//b = NULL;
+	a = NULL;
+	b = NULL;
 	nums = NULL;
-	if (argc < 2)
-		return (0);
-	if (!init_nums(argv, &nums, &totalnums) || !valid_args(argc, argv))
-	{
-		ft_printf("Error\n");
-		free(nums);
+	totalnums = 0;
+	if (!douane(argc, argv, &nums, &totalnums))
 		return (1);
-	}
-	test_moves(nums, totalnums);
+	init_stack(&a, nums, totalnums);
+	assign_indices(a);
+	if (totalnums == 3)
+		solve_three(&a);
+	else if (totalnums == 5 || totalnums == 4)
+		solve_five(&a, &b, totalnums);
+	print_stack(a);
+	print_stack(b);
+	free_stack(&a);
+	free_stack(&b);
 	free(nums);
 	return (0);
 }
