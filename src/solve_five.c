@@ -24,6 +24,29 @@ int     get_small_pos(t_stack *a)
     return (pos);
 }
 
+int    pain_on_top(t_stack **a, int pos, int size)
+{
+    int c;
+
+    if (pos <= (size / 2))
+    {
+        while (pos-- > 0)
+        {
+            ra(a);
+            c++;
+        }
+    }
+    else
+    {
+        while (pos++ < size)
+        {
+            rra(a);
+            c++;
+        }
+    }
+    return (c);
+}
+
 void    move_on_top(t_stack **a, int pos, int size)
 {
     if (pos <= (size / 2))

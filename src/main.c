@@ -37,9 +37,12 @@ int	main(int argc, char **argv)
 		solve_three(&a);
 	else if (totalnums == 5 || totalnums == 4 || totalnums == 2)
 		solve_five(&a, &b, totalnums);
-	//else if (totalnums > 5)
-	//	solve_pain(&a, &b, totalnums);
+	else if (totalnums > 5)
+		solve_pain(&a, &b, totalnums);
+	ft_printf("Stack A \n");
 	print_stack(a);
+		ft_printf("Stack B \n");
+	print_stack(b);
 	free_stack(&a);
 	free_stack(&b);
 	free(nums);

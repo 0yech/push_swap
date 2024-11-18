@@ -90,20 +90,23 @@ int		pb(t_stack **a, t_stack **b);
 /* init_stack.c */
 void	init_stack(t_stack **stack, int *nums, int totalnums);
 void	assign_indices(t_stack *a);
-void 	print_stack(t_stack *stack);
+void	print_stack(t_stack *stack);
 
 /* is_sorted.c */
 int 	is_sorted(int *nums, int totalnums);
+// ADD IS STACK SORTED !
 
 /* solve_three.c */
 void	solve_three(t_stack **a);
 
 /* solve_five.c */
 int     get_small_pos(t_stack *a);
+int    pain_on_top(t_stack **a, int pos, int size);
 void    move_on_top(t_stack **a, int pos, int size);
 void    push_smallb(t_stack **a, t_stack **b, int size);
 void    solve_five(t_stack **a, t_stack **b, int totalnums);
 
 /* sort_pain.c */
+void	solve_pain(t_stack **a, t_stack **b, int totalnums);
 
 #endif
