@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nrey <nrey@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/23 11:46:12 by nrey              #+#    #+#             */
+/*   Updated: 2024/11/23 11:46:40 by nrey             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 long	ft_longatoi(const char *str)
@@ -57,9 +69,9 @@ int	lookfornums(char *s)
 	return (1);
 }
 
-int stack_size(t_stack *stack)
+int	stack_size(t_stack *stack)
 {
-	int size;
+	int	size;
 
 	size = 0;
 	while (stack)

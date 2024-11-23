@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nrey <nrey@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/23 11:47:02 by nrey              #+#    #+#             */
+/*   Updated: 2024/11/23 11:47:30 by nrey             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static int	douane(int argc, char **argv, int **nums, int *totalnums)
@@ -21,7 +33,7 @@ static int	douane(int argc, char **argv, int **nums, int *totalnums)
 int	main(int argc, char **argv)
 {
 	t_stack	*a;
-	t_stack *b;
+	t_stack	*b;
 	int		*nums;
 	int		totalnums;
 
@@ -39,10 +51,6 @@ int	main(int argc, char **argv)
 		solve_five(&a, &b, totalnums);
 	else if (totalnums > 5)
 		solve_pain(&a, &b, totalnums);
-	ft_printf("Stack A \n");
-	print_stack(a);
-		ft_printf("Stack B \n");
-	print_stack(b);
 	free_stack(&a);
 	free_stack(&b);
 	free(nums);
@@ -58,9 +66,3 @@ int	main(int argc, char **argv)
 // Like head, src or dst.
 // **src does not contain a "next" field, as it's the list itself.
 // Dereferencing src let's us access it's node and therefore, fields.
-
-
-// TODO
-
-// Add cleanup in case nums is initiated but still causes error.
-// Cleanup shall free a, b and nums to avoid leaks.

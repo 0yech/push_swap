@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cheyo <cheyo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: nrey <nrey@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 18:39:25 by cheyo             #+#    #+#             */
-/*   Updated: 2024/11/01 18:48:31 by cheyo            ###   ########.fr       */
+/*   Updated: 2024/11/23 11:43:33 by nrey             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,18 +93,16 @@ void	assign_indices(t_stack *a);
 void	print_stack(t_stack *stack);
 
 /* is_sorted.c */
-int 	is_sorted(int *nums, int totalnums);
-// ADD IS STACK SORTED !
+int		is_sorted(int *nums, int totalnums);
 
 /* solve_three.c */
 void	solve_three(t_stack **a);
 
 /* solve_five.c */
-int     get_small_pos(t_stack *a);
-int    pain_on_top(t_stack **a, int pos, int size);
-void    move_on_top(t_stack **a, int pos, int size);
-void    push_smallb(t_stack **a, t_stack **b, int size);
-void    solve_five(t_stack **a, t_stack **b, int totalnums);
+int		get_small_pos(t_stack *a);
+void	move_on_top(t_stack **a, int pos, int size);
+void	push_smallb(t_stack **a, t_stack **b, int size);
+void	solve_five(t_stack **a, t_stack **b, int totalnums);
 
 /* sort_pain.c */
 void	solve_pain(t_stack **a, t_stack **b, int totalnums);

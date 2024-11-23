@@ -1,10 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   solve_pain.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nrey <nrey@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/23 11:18:09 by nrey              #+#    #+#             */
+/*   Updated: 2024/11/23 11:24:15 by nrey             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-int		is_a_solved(t_stack *a, int totalnums)
+int	is_a_solved(t_stack *a, int totalnums)
 {
-	// returns 1 if the stack is solved !
-	t_stack *cpy;
-	int i;
+	t_stack	*cpy;
+	int		i;
 
 	i = 1;
 	cpy = a;
@@ -19,101 +30,45 @@ int		is_a_solved(t_stack *a, int totalnums)
 	return (1);
 }
 
-void    solve_pain(t_stack **a, t_stack **b, int totalnums)
+int	count_bits(int totalnums)
 {
-	int c;
-	int aled;
+	int	max_bits;
 
-	c = totalnums;
-	aled = 0;
-	while (c)
-	{
-		aled += pain_on_top(a, get_small_pos(*a), stack_size(*a));
-		pb(a, b);
-		aled++;
-		c--;
-		
-	}
-	while (c != totalnums)
-	{
-		pa(a, b);
-		c++;
-		aled++;
-	}
-/*
-	int n;
-	t_stack *lasta;
-	t_stack *lastb;
-	int c = 0;
-
-	n = totalnums / 2;
-	while (n)
-	{
-		move_on_top(a, get_small_pos(*a), stack_size(*a));
-		pb(a, b);
-		c++;
-		n--;
-	}
-	//is_a_solved(*a, totalnums) == 0
-	while (is_a_solved(*a, totalnums) == 0)
-    {
-		lasta = last_stack(*a);
-		lastb = last_stack(*b);
-		if (*a && (*a)->next && (*a)->index > (*a)->next->index)
-		{
-			sa(a);
-			c++;
-		}
-		else if (*b && (*b)->next && (*b)->index < (*b)->next->index)
-		{
-			sb(b);
-			c++;
-		}
-		else if (*b && (*a) && (*b)->index == ((*a)->index - 1))
-		{
-			pa(a, b);
-			c++;
-		}
-		else if (*a && (*b) && (*a)->index == ((*b)->index + 1))
-		{
-			pb(a, b);
-			c++;
-			sb(b);
-			c++;
-		}
-		else if (lasta && lasta->prev && lasta->index < lasta->prev->index)
-		{
-			rra(a);
-			c++;
-			rra(a);
-			c++;
-			sa(a);
-			c++;
-			ra(a);
-			c++;
-			ra(a);
-			c++;
-		}
-		else if (lastb && lastb->prev && lastb->index > lastb->prev->index)
-		{
-			rrb(b);
-			c++;
-			rrb(b);
-			c++;
-			sb(b);
-			c++;
-			rb(b);
-			c++;
-			rb(b);
-			c++;
-		}
-		else
-		{
-			move_on_top(a, get_small_pos(*a), stack_size(*a));
-			pb(a, b);
-		}
-	}
-*/
-	if (is_a_solved(*a, totalnums) == 1)
-	ft_printf("Solved\n %d moves\n", aled);
+	max_bits = 0;
+	while ((totalnums - 1) >> max_bits != 0)
+		max_bits++;
+	return (max_bits);
 }
+
+void	process_bit(t_stack **a, t_stack **b, int bit, int size)
+{
+	int	i;
+
+	i = 0;
+	while (i < size)
+	{
+		if (((*a)->index >> bit) & 1)
+			ra(a);
+		else
+			pb(a, b);
+		i++;
+	}
+	while (*b)
+		pa(a, b);
+}
+
+void	solve_pain(t_stack **a, t_stack **b, int totalnums)
+{
+	int	max_bits;
+	int	i;
+
+	max_bits = count_bits(totalnums);
+	i = 0;
+	while (i < max_bits)
+	{
+		process_bit(a, b, i, totalnums);
+		i++;
+	}
+}
+//if (is_a_solved(*a, totalnums) == 1)
+//ft_printf("Solved\n moves\n");

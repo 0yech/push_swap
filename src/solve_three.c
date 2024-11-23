@@ -1,35 +1,50 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   solve_three.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nrey <nrey@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/23 11:41:00 by nrey              #+#    #+#             */
+/*   Updated: 2024/11/23 11:41:27 by nrey             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	solve_three(t_stack **a)
 {
-	int	first = (*a)->index;
-	int second = (*a)->next->index;
-	int third = (*a)->next->next->index;
+	int	first;
+	int	second;
+	int	third;
 
+	first = (*a)->index;
+	second = (*a)->next->index;
+	third = (*a)->next->next->index;
 	if (first > second && second < third && first < third)
-		sa(a); // E
+		sa(a);
 	else if (first > second && second > third)
 	{
-		sa(a); // F
+		sa(a);
 		rra(a);
 	}
 	else if (first > second && second < third)
-		ra(a); // G
+		ra(a);
 	else if (first < second && second > third && first < third)
 	{
-		sa(a); // H
+		sa(a);
 		ra(a);
 	}
 	else if (first < second && second > third)
-		rra(a); // I
+		rra(a);
 }
 
 /*
 
-	E) first is misplaced with second.
-	F) stack is reversed.
-	G) the first node is the biggest.
-	H) the second node is the biggest.
-	I) last node is the biggest.
+	1) first is misplaced with second.
+	2) stack is reversed.
+	3) the first node is the biggest.
+	4) the second node is the biggest.
+	5) last node is the biggest.
 
 */
