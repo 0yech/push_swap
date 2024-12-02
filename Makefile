@@ -1,6 +1,6 @@
 NAME = push_swap
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror 
 LIBFT_DIR = ./libft
 PRINTF_DIR = ./ft_printf
 SRC_DIR = ./src
